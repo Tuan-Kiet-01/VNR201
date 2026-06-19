@@ -1466,7 +1466,13 @@ export default function App() {
 
       {/* GAME ASSESSMENT SECTION / TẦNG 4A */}
       <section className="bg-retro-cream border-t-4 border-b-2 border-retro-charcoal py-16 px-4 relative overflow-hidden">
-        <div className="max-w-3xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="max-w-3xl mx-auto"
+        >
           
           <div className="text-center mb-10">
             <span className="px-3 py-1 bg-retro-yellow text-retro-charcoal font-mono text-xs font-bold uppercase tracking-widest border border-retro-charcoal rounded-full shadow-sm">
@@ -1579,44 +1585,51 @@ export default function App() {
                   </div>
                   
                   <div className="space-y-2.5 max-h-[240px] overflow-y-auto pr-1">
-                    {DRAG_ITEMS.filter(item => !sortedCards[item.id]).map((item) => (
-                      <div
-                        key={item.id}
-                        draggable
-                        onDragStart={(e) => handleDragStart(e, item.id)}
-                        className={`bg-retro-cream border-2 border-retro-charcoal rounded-lg p-3.5 cursor-grab active:cursor-grabbing transition-transform select-none relative ${
-                          wrongFeedbackId === item.id ? "animate-shake bg-red-100 border-retro-red" : "hover:scale-[1.01]"
-                        }`}
-                      >
-                        <div className="text-sm font-medium text-retro-charcoal pr-8 leading-relaxed">
-                          {item.text}
-                        </div>
-                        
-                        {/* Display wrong warning badge */}
-                        {wrongFeedbackId === item.id && (
-                          <div className="absolute top-2 right-2 text-xs font-mono font-bold text-retro-red uppercase animate-pulse">
-                            Sai rương! ❌
+                    <AnimatePresence mode="popLayout">
+                      {DRAG_ITEMS.filter(item => !sortedCards[item.id]).map((item) => (
+                        <motion.div
+                          key={item.id}
+                          layout
+                          initial={{ opacity: 0, y: 15 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, scale: 0.9, x: -20 }}
+                          transition={{ duration: 0.25 }}
+                          draggable
+                          onDragStart={(e) => handleDragStart(e, item.id)}
+                          className={`bg-retro-cream border-2 border-retro-charcoal rounded-lg p-3.5 cursor-grab active:cursor-grabbing transition-transform select-none relative ${
+                            wrongFeedbackId === item.id ? "animate-shake bg-red-100 border-retro-red" : "hover:scale-[1.01]"
+                          }`}
+                        >
+                          <div className="text-sm font-medium text-retro-charcoal pr-8 leading-relaxed">
+                            {item.text}
                           </div>
-                        )}
+                          
+                          {/* Display wrong warning badge */}
+                          {wrongFeedbackId === item.id && (
+                            <div className="absolute top-2 right-2 text-xs font-mono font-bold text-retro-red uppercase animate-pulse">
+                              Sai rương! ❌
+                            </div>
+                          )}
 
-                        {/* Instant responsive button helpers for touch platforms / easy click experience */}
-                        <div className="flex flex-wrap gap-2.5 mt-3.5 pt-3 border-t border-dashed border-retro-border">
-                          <span className="text-xs font-mono text-retro-gray my-auto hidden sm:block">Lựa chọn nhanh:</span>
-                          <button
-                            onClick={() => sortCard(item.id, "bao_cap")}
-                            className="px-2.5 py-1.5 rounded bg-red-100 hover:bg-red-200 text-retro-red text-xs font-mono font-bold border border-retro-charcoal/20"
-                          >
-                            ← Chọn Bao Cấp
-                          </button>
-                          <button
-                            onClick={() => sortCard(item.id, "hach_toan")}
-                            className="px-2.5 py-1.5 rounded bg-emerald-100 hover:bg-emerald-200 text-retro-mint text-xs font-mono font-bold border border-retro-charcoal/20"
-                          >
-                            Chọn Hạch Toán →
-                          </button>
-                        </div>
-                      </div>
-                    ))}
+                          {/* Instant responsive button helpers for touch platforms / easy click experience */}
+                          <div className="flex flex-wrap gap-2.5 mt-3.5 pt-3 border-t border-dashed border-retro-border">
+                            <span className="text-xs font-mono text-retro-gray my-auto hidden sm:block">Lựa chọn nhanh:</span>
+                            <button
+                              onClick={() => sortCard(item.id, "bao_cap")}
+                              className="px-2.5 py-1.5 rounded bg-red-100 hover:bg-red-200 text-retro-red text-xs font-mono font-bold border border-retro-charcoal/20 transition-transform active:scale-95 z-10 relative"
+                            >
+                              ← Chọn Bao Cấp
+                            </button>
+                            <button
+                              onClick={() => sortCard(item.id, "hach_toan")}
+                              className="px-2.5 py-1.5 rounded bg-emerald-100 hover:bg-emerald-200 text-retro-mint text-xs font-mono font-bold border border-retro-charcoal/20 transition-transform active:scale-95 z-10 relative"
+                            >
+                              Chọn Hạch Toán →
+                            </button>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </AnimatePresence>
                   </div>
                 </div>
               )}
@@ -1624,12 +1637,18 @@ export default function App() {
 
           </div>
 
-        </div>
+        </motion.div>
       </section>
 
       {/* QUIZ ASSESSMENT SECTION / TẦNG 4B */}
       <section className="bg-retro-cream border-t-2 border-b-4 border-retro-charcoal py-16 px-4 relative overflow-hidden">
-        <div className="max-w-2xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="max-w-2xl mx-auto"
+        >
           
           <div className="text-center mb-10">
             <span className="px-3 py-1 bg-retro-orange text-white font-mono text-xs font-bold uppercase tracking-widest border border-retro-charcoal rounded-full shadow-sm">
@@ -1655,99 +1674,109 @@ export default function App() {
             </h3>
             
             {!quizCompleted ? (
-              <div>
-                <div className="flex items-center justify-between mb-4 border-b pb-2">
-                  <span className="text-xs font-mono font-bold text-retro-gray uppercase">
-                    Câu hỏi {currentQuizIdx + 1} / {QUIZ_QUESTIONS.length}
-                  </span>
-                  <span className="text-xs font-mono bg-retro-cream px-2 py-0.5 rounded text-retro-orange font-bold">
-                    Điểm: {quizCumulativeScore}
-                  </span>
-                </div>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentQuizIdx}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.25 }}
+                >
+                  <div className="flex items-center justify-between mb-4 border-b pb-2">
+                    <span className="text-xs font-mono font-bold text-retro-gray uppercase">
+                      Câu hỏi {currentQuizIdx + 1} / {QUIZ_QUESTIONS.length}
+                    </span>
+                    <span className="text-xs font-mono bg-retro-cream px-2 py-0.5 rounded text-retro-orange font-bold">
+                      Điểm: {quizCumulativeScore}
+                    </span>
+                  </div>
 
-                <h4 className="text-sm md:text-base font-display font-bold text-retro-charcoal leading-snug mb-4">
-                  {QUIZ_QUESTIONS[currentQuizIdx].question}
-                </h4>
+                  <h4 className="text-sm md:text-base font-display font-bold text-retro-charcoal leading-snug mb-4">
+                    {QUIZ_QUESTIONS[currentQuizIdx].question}
+                  </h4>
 
-                {/* Render Options list */}
-                <div className="space-y-2.5 mb-5">
-                  {QUIZ_QUESTIONS[currentQuizIdx].options.map((option, idx) => {
-                    let btnStyle = "bg-retro-cream hover:bg-amber-50 text-retro-charcoal border-retro-border";
-                    
-                    if (quizSelectedOption === idx && !quizSubmitted) {
-                      btnStyle = "bg-orange-50 border-retro-orange text-retro-charcoal";
-                    } else if (quizSubmitted) {
-                      if (idx === QUIZ_QUESTIONS[currentQuizIdx].correctAnswer) {
-                        btnStyle = "bg-emerald-100 border-retro-mint text-emerald-800 font-bold";
-                      } else if (quizSelectedOption === idx) {
-                        btnStyle = "bg-red-100 border-retro-red text-red-800";
-                      } else {
-                        btnStyle = "bg-slate-50 text-slate-400 border-slate-200 opacity-60";
+                  {/* Render Options list */}
+                  <div className="space-y-2.5 mb-5">
+                    {QUIZ_QUESTIONS[currentQuizIdx].options.map((option, idx) => {
+                      let btnStyle = "bg-retro-cream hover:bg-amber-50 text-retro-charcoal border-retro-border";
+                      
+                      if (quizSelectedOption === idx && !quizSubmitted) {
+                        btnStyle = "bg-orange-50 border-retro-orange text-retro-charcoal";
+                      } else if (quizSubmitted) {
+                        if (idx === QUIZ_QUESTIONS[currentQuizIdx].correctAnswer) {
+                          btnStyle = "bg-emerald-100 border-retro-mint text-emerald-800 font-bold";
+                        } else if (quizSelectedOption === idx) {
+                          btnStyle = "bg-red-100 border-retro-red text-red-800";
+                        } else {
+                          btnStyle = "bg-slate-50 text-slate-400 border-slate-200 opacity-60";
+                        }
                       }
-                    }
 
-                    return (
+                      return (
+                        <motion.button
+                          key={idx}
+                          disabled={quizSubmitted}
+                          onClick={() => handleQuizOptionClick(idx)}
+                          whileHover={!quizSubmitted ? { scale: 1.01, x: 4 } : {}}
+                          whileTap={!quizSubmitted ? { scale: 0.99 } : {}}
+                          className={`w-full text-left p-3.5 rounded-lg text-sm font-sans tracking-tight border-2 transition-all flex items-start gap-2.5 ${btnStyle}`}
+                        >
+                          <span className="w-5.5 h-5.5 rounded bg-white shadow-sm border text-xs font-bold flex items-center justify-center shrink-0 font-mono text-retro-charcoal">
+                            {String.fromCharCode(65 + idx)}
+                          </span>
+                          <span className="flex-1 leading-relaxed">{option}</span>
+                          
+                          {quizSubmitted && idx === QUIZ_QUESTIONS[currentQuizIdx].correctAnswer && (
+                            <Check className="w-4.5 h-4.5 text-retro-mint shrink-0 my-auto" />
+                          )}
+                          {quizSubmitted && quizSelectedOption === idx && idx !== QUIZ_QUESTIONS[currentQuizIdx].correctAnswer && (
+                            <X className="w-4.5 h-4.5 text-retro-red shrink-0 my-auto" />
+                          )}
+                        </motion.button>
+                      );
+                    })}
+                  </div>
+
+                  {/* Submit actions & explanation */}
+                  <div className="space-y-4">
+                    {!quizSubmitted ? (
                       <button
-                        key={idx}
-                        disabled={quizSubmitted}
-                        onClick={() => handleQuizOptionClick(idx)}
-                        className={`w-full text-left p-3.5 rounded-lg text-sm font-sans tracking-tight border-2 transition-all flex items-start gap-2.5 ${btnStyle}`}
+                        onClick={submitQuizAnswer}
+                        disabled={quizSelectedOption === null}
+                        className={`w-full py-3.5 bg-retro-orange hover:bg-orange-500 font-display font-bold text-sm uppercase tracking-wider text-white rounded-lg border-2 border-retro-charcoal shadow-[3px_3px_0px_#1e1f22] transition-all flex items-center justify-center gap-1.5 ${
+                          quizSelectedOption === null ? "opacity-50 cursor-not-allowed" : "active:translate-x-0.5 active:translate-y-0.5 active:shadow-[1px_1px_0px_#1e1f22]"
+                        }`}
                       >
-                        <span className="w-5.5 h-5.5 rounded bg-white shadow-sm border text-xs font-bold flex items-center justify-center shrink-0 font-mono text-retro-charcoal">
-                          {String.fromCharCode(65 + idx)}
-                        </span>
-                        <span className="flex-1 leading-relaxed">{option}</span>
-                        
-                        {quizSubmitted && idx === QUIZ_QUESTIONS[currentQuizIdx].correctAnswer && (
-                          <Check className="w-4.5 h-4.5 text-retro-mint shrink-0 my-auto" />
-                        )}
-                        {quizSubmitted && quizSelectedOption === idx && idx !== QUIZ_QUESTIONS[currentQuizIdx].correctAnswer && (
-                          <X className="w-4.5 h-4.5 text-retro-red shrink-0 my-auto" />
-                        )}
+                        Xác nhận câu trả lời
+                        <CheckCircle2 className="w-4.5 h-4.5" />
                       </button>
-                    );
-                  })}
-                </div>
+                    ) : (
+                      <div className="space-y-3.5">
+                        {/* Explanation block */}
+                        <motion.div 
+                          initial={{ opacity: 0, y: 5 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          className="bg-retro-cream p-4 rounded-lg border border-retro-border text-sm leading-relaxed"
+                        >
+                          <div className="font-mono font-bold text-xs uppercase text-retro-orange mb-1.5 flex items-center gap-1">
+                            <Info className="w-4 h-4 text-retro-orange" />
+                            Giải thích lịch sử Đảng:
+                          </div>
+                          <p className="text-retro-gray">{QUIZ_QUESTIONS[currentQuizIdx].explanation}</p>
+                        </motion.div>
 
-                {/* Submit actions & explanation */}
-                <div className="space-y-4">
-                  {!quizSubmitted ? (
-                    <button
-                      onClick={submitQuizAnswer}
-                      disabled={quizSelectedOption === null}
-                      className={`w-full py-3.5 bg-retro-orange hover:bg-orange-500 font-display font-bold text-sm uppercase tracking-wider text-white rounded-lg border-2 border-retro-charcoal shadow-[3px_3px_0px_#1e1f22] transition-all flex items-center justify-center gap-1.5 ${
-                        quizSelectedOption === null ? "opacity-50 cursor-not-allowed" : "active:translate-x-0.5 active:translate-y-0.5 active:shadow-[1px_1px_0px_#1e1f22]"
-                      }`}
-                    >
-                      Xác nhận câu trả lời
-                      <CheckCircle2 className="w-4.5 h-4.5" />
-                    </button>
-                  ) : (
-                    <div className="space-y-3.5">
-                      {/* Explanation block */}
-                      <motion.div 
-                        initial={{ opacity: 0, y: 5 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="bg-retro-cream p-4 rounded-lg border border-retro-border text-sm leading-relaxed"
-                      >
-                        <div className="font-mono font-bold text-xs uppercase text-retro-orange mb-1.5 flex items-center gap-1">
-                          <Info className="w-4 h-4 text-retro-orange" />
-                          Giải thích lịch sử Đảng:
-                        </div>
-                        <p className="text-retro-gray">{QUIZ_QUESTIONS[currentQuizIdx].explanation}</p>
-                      </motion.div>
-
-                      <button
-                        onClick={nextQuizQuestion}
-                        className="w-full py-3.5 bg-retro-charcoal hover:bg-retro-gray font-display font-bold text-sm uppercase tracking-wider text-white rounded-lg transition-all flex items-center justify-center gap-1.5"
-                      >
-                        Tiếp theo
-                        <ChevronRight className="w-4.5 h-4.5" />
-                      </button>
-                    </div>
-                  )}
-                </div>
-              </div>
+                        <button
+                          onClick={nextQuizQuestion}
+                          className="w-full py-3.5 bg-retro-charcoal hover:bg-retro-gray font-display font-bold text-sm uppercase tracking-wider text-white rounded-lg transition-all flex items-center justify-center gap-1.5"
+                        >
+                          Tiếp theo
+                          <ChevronRight className="w-4.5 h-4.5" />
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                </motion.div>
+              </AnimatePresence>
             ) : (
               <motion.div 
                 initial={{ opacity: 0 }}
@@ -1780,12 +1809,18 @@ export default function App() {
 
           </div>
 
-        </div>
+        </motion.div>
       </section>
 
       {/* DETAILED COORDINATION BOARD (FOOTER SECTION) / TẦNG 5 */}
       <section id="footer-tab" className="bg-retro-cream text-retro-charcoal border-t-4 border-retro-charcoal py-16 px-4">
-        <div className="max-w-4xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="max-w-4xl mx-auto"
+        >
           
           <div className="text-center mb-12">
             <span className="px-3 py-1 bg-retro-charcoal/5 text-retro-orange font-mono text-[10px] font-bold uppercase tracking-widest border border-retro-charcoal/20 rounded-full">
@@ -1807,7 +1842,11 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch mb-10">
             
             {/* AI ROLE COL */}
-            <div className="bg-white border-2 border-retro-charcoal rounded-2xl p-6 flex flex-col justify-between shadow-[4px_4px_0px_rgba(30,31,34,1)]">
+            <motion.div 
+              whileHover={{ y: -6, scale: 1.01 }}
+              transition={{ duration: 0.2 }}
+              className="bg-white border-2 border-retro-charcoal rounded-2xl p-6 flex flex-col justify-between shadow-[4px_4px_0px_rgba(30,31,34,1)]"
+            >
               <div>
                 <div className="flex items-center gap-3.5 mb-4 border-b border-retro-border pb-4">
                   <div className="relative flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-retro-red to-orange-600 text-white font-bold shadow-[0_0_12px_rgba(239,68,68,0.4)] border border-white/20 hover:scale-105 transition-all duration-300 select-none shrink-0 group">
@@ -1840,10 +1879,14 @@ export default function App() {
               <div className="mt-6 pt-4 border-t border-retro-border text-xs font-mono text-retro-gray uppercase tracking-widest font-semibold">
                 Trạng thái: Hoàn thiện tối ưu 100%
               </div>
-            </div>
+            </motion.div>
 
             {/* HUMAN ROLE COL */}
-            <div className="bg-white border-2 border-retro-charcoal rounded-2xl p-6 flex flex-col justify-between shadow-[4px_4px_0px_rgba(30,31,34,1)]">
+            <motion.div 
+              whileHover={{ y: -6, scale: 1.01 }}
+              transition={{ duration: 0.2 }}
+              className="bg-white border-2 border-retro-charcoal rounded-2xl p-6 flex flex-col justify-between shadow-[4px_4px_0px_rgba(30,31,34,1)]"
+            >
               <div>
                 <div className="flex items-center gap-3.5 mb-4 border-b border-retro-border pb-4">
                   <div className="relative flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-[#10B981] to-emerald-600 text-white font-bold shadow-[0_0_12px_rgba(16,185,129,0.4)] border border-white/20 hover:scale-105 transition-all duration-300 select-none shrink-0 group">
@@ -1876,7 +1919,7 @@ export default function App() {
               <div className="mt-6 pt-4 border-t border-retro-border text-xs font-mono text-retro-gray uppercase tracking-widest font-semibold">
                 Trương kiểm duyệt: Sinh viên hoàn tất kiểm duyệt 100%
               </div>
-            </div>
+            </motion.div>
 
           </div>
 
@@ -1891,7 +1934,7 @@ export default function App() {
 
           </div>
 
-        </div>
+        </motion.div>
       </section>
 
     </div>
