@@ -625,36 +625,45 @@ export default function App() {
                                   initial={{ height: 0 }}
                                   animate={{ height: "auto" }}
                                   exit={{ height: 0 }}
-                                  className="overflow-hidden bg-[#1D1E22] text-amber-100"
+                                  className="overflow-hidden bg-retro-cream text-retro-charcoal border-t border-retro-border"
                                 >
-                                  <div className="p-4 text-sm font-mono tracking-wide leading-relaxed border-t border-retro-border space-y-2">
+                                  <div className="p-4 text-sm font-sans tracking-wide leading-relaxed space-y-2">
                                     {MILESTONES[1].details.extraNarrative.split("\n").map((line, lIdx) => {
                                       if (line.includes("• Nhận thức mô hình:")) {
                                         return (
-                                          <p key={lIdx} className="leading-6">
-                                            • <span className="text-retro-red font-sans font-bold bg-retro-red/15 text-xs px-1.5 py-0.5 rounded border border-retro-red/30 mr-1 shadow-sm">Nhận thức mô hình:</span>
-                                            <span className="text-amber-50/90">{line.substring(line.indexOf("Nhận thức mô hình:") + "Nhận thức mô hình:".length)}</span>
+                                          <p key={lIdx} className="leading-6 flex items-start gap-1">
+                                            <span>•</span>
+                                            <span>
+                                              <span className="text-retro-red font-bold bg-retro-red/10 text-xs px-1.5 py-0.5 rounded border border-retro-red/20 mr-1 shadow-sm font-sans">Nhận thức mô hình:</span>
+                                              <span className="text-retro-gray">{line.substring(line.indexOf("Nhận thức mô hình:") + "Nhận thức mô hình:".length)}</span>
+                                            </span>
                                           </p>
                                         );
                                       }
                                       if (line.includes("• Mục tiêu và thời gian:")) {
                                         return (
-                                          <p key={lIdx} className="leading-6">
-                                            • <span className="text-retro-red font-sans font-bold bg-retro-red/15 text-xs px-1.5 py-0.5 rounded border border-retro-red/30 mr-1 shadow-sm">Mục tiêu và thời gian:</span>
-                                            <span className="text-amber-50/90">{line.substring(line.indexOf("Mục tiêu và thời gian:") + "Mục tiêu và thời gian:".length)}</span>
+                                          <p key={lIdx} className="leading-6 flex items-start gap-1">
+                                            <span>•</span>
+                                            <span>
+                                              <span className="text-retro-red font-bold bg-retro-red/10 text-xs px-1.5 py-0.5 rounded border border-retro-red/20 mr-1 shadow-sm font-sans">Mục tiêu và thời gian:</span>
+                                              <span className="text-retro-gray">{line.substring(line.indexOf("Mục tiêu và thời gian:") + "Mục tiêu và thời gian:".length)}</span>
+                                            </span>
                                           </p>
                                         );
                                       }
                                       if (line.includes("• Chỉ tiêu kinh tế:")) {
                                         return (
-                                          <p key={lIdx} className="leading-6">
-                                            • <span className="text-retro-red font-sans font-bold bg-retro-red/15 text-xs px-1.5 py-0.5 rounded border border-retro-red/30 mr-1 shadow-sm">Chỉ tiêu kinh tế:</span>
-                                            <span className="text-amber-50/90">{line.substring(line.indexOf("Chỉ tiêu kinh tế:") + "Chỉ tiêu kinh tế:".length)}</span>
+                                          <p key={lIdx} className="leading-6 flex items-start gap-1">
+                                            <span>•</span>
+                                            <span>
+                                              <span className="text-retro-red font-bold bg-retro-red/10 text-xs px-1.5 py-0.5 rounded border border-retro-red/20 mr-1 shadow-sm font-sans">Chỉ tiêu kinh tế:</span>
+                                              <span className="text-retro-gray">{line.substring(line.indexOf("Chỉ tiêu kinh tế:") + "Chỉ tiêu kinh tế:".length)}</span>
+                                            </span>
                                           </p>
                                         );
                                       }
                                       return (
-                                        <p key={lIdx} className={line.startsWith("⚠️") ? "text-retro-yellow font-bold text-xs uppercase tracking-widest pb-1" : "text-amber-100/75"}>
+                                        <p key={lIdx} className={line.startsWith("⚠️") ? "text-retro-orange font-bold text-xs uppercase tracking-widest pb-1 font-mono" : "text-retro-gray pl-3.5"}>
                                           {line}
                                         </p>
                                       );
@@ -1219,10 +1228,10 @@ export default function App() {
                         </div>
 
                         {/* INTERACTIVE COMPONENT: COLLAPSE BLOCKS OF BARRIER LIMITATIONS */}
-                        <div className="border border-retro-border rounded-xl">
+                        <div className="border border-retro-border rounded-xl overflow-hidden">
                           <button
                             onClick={() => setShowM5Limitations(!showM5Limitations)}
-                            className="w-full text-left bg-orange-100 hover:bg-orange-200 transition-colors px-4 py-3 flex items-center justify-between rounded-t-xl"
+                            className="w-full text-left bg-orange-100 hover:bg-orange-200 transition-colors px-4 py-3 flex items-center justify-between"
                           >
                             <div className="flex items-center gap-2">
                               <HelpCircle className="w-4.5 h-4.5 text-retro-red animate-pulse" />
@@ -1239,24 +1248,24 @@ export default function App() {
                                 initial={{ height: 0 }}
                                 animate={{ height: "auto" }}
                                 exit={{ height: 0 }}
-                                className="overflow-hidden bg-[#1D1E22] text-orange-100"
+                                className="overflow-hidden bg-retro-cream text-retro-charcoal border-t border-retro-border"
                               >
-                                <div className="p-4 text-sm font-mono select-none space-y-3">
+                                <div className="p-4 text-sm font-sans select-none space-y-3">
                                   <div className="flex gap-2.5 items-start">
-                                    <span className="text-retro-yellow font-extrabold">1.</span>
-                                    <div>Chưa thấy hết sự cần thiết duy trì nền kinh tế nhiều thành phần; chưa xác định rõ việc kết hợp kế hoạch hóa với tôn trọng cơ chế thị trường.</div>
+                                    <span className="text-retro-orange font-bold font-mono">1.</span>
+                                    <div className="text-retro-gray leading-relaxed">Chưa thấy hết sự cần thiết duy trì nền kinh tế nhiều thành phần; chưa xác định rõ việc kết hợp kế hoạch hóa với tôn trọng cơ chế thị trường.</div>
                                   </div>
-                                  <div className="flex gap-2.5 items-start pt-2 border-t border-gray-800">
-                                    <span className="text-retro-yellow font-extrabold">2.</span>
-                                    <div>Chủ trương còn nóng vội, muốn hoàn thành nhanh cải tạo xã hội chủ nghĩa ở miền Nam chỉ trong thời gian 5 năm ngắn.</div>
+                                  <div className="flex gap-2.5 items-start pt-2 border-t border-retro-border">
+                                    <span className="text-retro-orange font-bold font-mono">2.</span>
+                                    <div className="text-retro-gray leading-relaxed">Chủ trương còn nóng vội, muốn hoàn thành nhanh cải tạo xã hội chủ nghĩa ở miền Nam chỉ trong thời gian 5 năm ngắn.</div>
                                   </div>
-                                  <div className="flex gap-2.5 items-start pt-2 border-t border-gray-800">
-                                    <span className="text-retro-yellow font-extrabold">3.</span>
-                                    <div>Tiếp tục rót vốn quốc gia tràn lan thâm hụt vào công nghiệp nặng xây dựng to lớn mà chưa hoạt động hiệu quả.</div>
+                                  <div className="flex gap-2.5 items-start pt-2 border-t border-retro-border">
+                                    <span className="text-retro-orange font-bold font-mono">3.</span>
+                                    <div className="text-retro-gray leading-relaxed">Tiếp tục rót vốn quốc gia tràn lan thâm hụt vào công nghiệp nặng xây dựng to lớn mà chưa hoạt động hiệu quả.</div>
                                   </div>
-                                  <div className="flex gap-2.5 items-start pt-2 border-t border-gray-800">
-                                    <span className="text-retro-yellow font-extrabold">4.</span>
-                                    <div>Không quyết đoán chuyển dứt khoát nhiều vốn vật tư để ưu ái phát triển cho nông nghiệp cả nước và sản xuất công nghiệp hàng tiêu dùng.</div>
+                                  <div className="flex gap-2.5 items-start pt-2 border-t border-retro-border">
+                                    <span className="text-retro-orange font-bold font-mono">4.</span>
+                                    <div className="text-retro-gray leading-relaxed">Không quyết đoán chuyển dứt khoát nhiều vốn vật tư để ưu ái phát triển cho nông nghiệp cả nước và sản xuất công nghiệp hàng tiêu dùng.</div>
                                   </div>
                                 </div>
                               </motion.div>
@@ -1455,305 +1464,162 @@ export default function App() {
         </div>
       </main>
 
-      {/* GAME & QUIZ ASSESSMENT SECTION / TẦNG 4 */}
-      <section className="bg-retro-yellow-light/40 border-t-4 border-b-4 border-retro-charcoal py-16 px-4 relative overflow-hidden">
-        {/* Background visual graphics */}
-        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-retro-yellow via-retro-orange to-retro-red"></div>
-        <div className="max-w-4xl mx-auto">
+      {/* GAME ASSESSMENT SECTION / TẦNG 4A */}
+      <section className="bg-retro-cream border-t-4 border-b-2 border-retro-charcoal py-16 px-4 relative overflow-hidden">
+        <div className="max-w-3xl mx-auto">
           
-          <div className="text-center mb-12">
+          <div className="text-center mb-10">
             <span className="px-3 py-1 bg-retro-yellow text-retro-charcoal font-mono text-xs font-bold uppercase tracking-widest border border-retro-charcoal rounded-full shadow-sm">
-              Trạm Đánh Giá Kiến Thức 🕹️
+              Hoạt Động Tương Tác 01 🕹️
             </span>
-            <h2 className="text-3xl md:text-5xl font-display font-extrabold uppercase mt-3 tracking-tight text-retro-charcoal">
-              Đổi Mới Tư Duy
+            <h2 className="text-3xl md:text-4xl font-display font-extrabold uppercase mt-3 tracking-tight text-retro-charcoal">
+              Trò Chơi Duyệt Chính Sách Kinh Tế
             </h2>
-            <p className="text-sm md:text-base text-retro-gray max-w-xl mx-auto mt-2">
-              Tham gia hai hoạt động tương tác sinh động để ôn luyện kiến thức thiết thực vừa thu nhận được.
+            <p className="text-sm text-retro-gray max-w-xl mx-auto mt-2">
+              Kéo thả hoặc lựa chọn nhanh các tấm thẻ chính sách kinh tế vào đúng hai tủ rương [Bao Cấp] hoặc [Hạch Toán Mới] để đột phá nhận thức tư duy đổi mới.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-            
-            {/* FIRST INTERACTION: SORTING GAME */}
-            <div className="bg-white border-2 border-retro-charcoal rounded-2xl p-6 shadow-[5px_5px_0px_#1e1f22] relative overflow-hidden">
-              <div className="absolute top-0 right-0 px-3 py-1 bg-retro-yellow font-mono text-[9px] font-bold text-retro-charcoal border-l border-b border-retro-charcoal rounded-bl-lg uppercase tracking-wider">
-                Trực quan hóa tư duy
-              </div>
+          {/* FIRST INTERACTION: SORTING GAME */}
+          <div className="bg-white border-2 border-retro-charcoal rounded-2xl p-6 shadow-[5px_5px_0px_#1e1f22] relative overflow-hidden">
+            <div className="absolute top-0 right-0 px-3 py-1 bg-retro-yellow font-mono text-[9px] font-bold text-retro-charcoal border-l border-b border-retro-charcoal rounded-bl-lg uppercase tracking-wider">
+              Trực quan hóa tư duy
+            </div>
 
-              <h3 className="text-lg md:text-xl font-display font-extrabold text-retro-charcoal uppercase mb-1.5 flex items-center gap-1.5">
-                <Sparkles className="w-5 h-5 text-retro-yellow" />
-                Duyệt chính sách kinh tế
-              </h3>
-              <p className="text-xs text-retro-gray mb-4 font-sans">
-                <strong>Nhiệm vụ:</strong> Kéo các tấm thẻ chính sách kinh tế vào hai chiếc rương chứa <strong className="text-retro-red">[ Bao Cấp ]</strong> hoặc <strong className="text-retro-mint">[ Hạch Toán Mới ]</strong> sao cho thích hợp nhất. 
-                <span className="block mt-1 italic text-[11px] text-retro-orange font-mono">
-                  *Lời khuyên: Bạn có thể nhấn trực tiếp các nút trên thẻ trên điện thoại!
-                </span>
-              </p>
+            <h3 className="text-lg md:text-xl font-display font-extrabold text-retro-charcoal uppercase mb-1.5 flex items-center gap-1.5">
+              <Sparkles className="w-5 h-5 text-retro-yellow" />
+              Duyệt chính sách kinh tế
+            </h3>
+            <p className="text-xs text-retro-gray mb-4 font-sans leading-relaxed">
+              <strong>Nhiệm vụ:</strong> Kéo các tấm thẻ chính sách kinh tế vào hai chiếc rương chứa <strong className="text-retro-red">[ Bao Cấp ]</strong> hoặc <strong className="text-retro-mint">[ Hạch Toán Mới ]</strong> sao cho thích hợp nhất. 
+              <span className="block mt-1 italic text-[11px] text-retro-orange font-mono">
+                *Lời khuyên: Bạn có thể nhấn trực tiếp các nút trên thẻ trên điện thoại!
+              </span>
+            </p>
 
-              {/* Chest drops zones visual */}
-              <div className="grid grid-cols-2 gap-4 mb-6">
-                
-                {/* OLD SUBSIDY CHEST */}
-                <div 
-                  onDragOver={handleDragOver}
-                  onDrop={(e) => handleDrop(e, "bao_cap")}
-                  className="bg-red-50/50 border-2 border-dashed border-retro-red rounded-xl p-4 flex flex-col items-center justify-between text-center min-h-[140px] transition-all hover:bg-red-50 relative"
-                >
-                  <div className="text-2xl select-none">📦</div>
-                  <h4 className="text-sm font-display font-black text-retro-red uppercase tracking-tight mt-1.5">
-                    Cơ Chế Bao Cấp Cũ
-                  </h4>
-                  <div className="text-xs font-mono text-retro-gray mt-1 uppercase font-semibold">
-                    Đặt tại đây
-                  </div>
-
-                  {/* Render already sorted items inside chest */}
-                  <div className="w-full mt-3 space-y-1">
-                    {DRAG_ITEMS.filter(item => sortedCards[item.id] === "bao_cap").map(item => (
-                      <div key={item.id} className="bg-white border border-retro-red rounded py-1 px-1.5 text-xs text-retro-red font-mono flex items-center justify-between">
-                        <span className="truncate">{item.text.slice(0, 20)}...</span>
-                        <Check className="w-3.5 h-3.5 text-retro-mint shrink-0" />
-                      </div>
-                    ))}
-                  </div>
+            {/* Chest drops zones visual */}
+            <div className="grid grid-cols-2 gap-4 mb-6">
+              
+              {/* OLD SUBSIDY CHEST */}
+              <div 
+                onDragOver={handleDragOver}
+                onDrop={(e) => handleDrop(e, "bao_cap")}
+                className="bg-red-50/50 border-2 border-dashed border-retro-red rounded-xl p-4 flex flex-col items-center justify-between text-center min-h-[140px] transition-all hover:bg-red-50 relative"
+              >
+                <div className="text-2xl select-none">📦</div>
+                <h4 className="text-sm font-display font-black text-retro-red uppercase tracking-tight mt-1.5">
+                  Cơ Chế Bao Cấp Cũ
+                </h4>
+                <div className="text-xs font-mono text-retro-gray mt-1 uppercase font-semibold">
+                  Đặt tại đây
                 </div>
 
-                {/* NEW INDOOR COMMERCE CHEST */}
-                <div 
-                  onDragOver={handleDragOver}
-                  onDrop={(e) => handleDrop(e, "hach_toan")}
-                  className="bg-emerald-50/50 border-2 border-dashed border-retro-mint rounded-xl p-4 flex flex-col items-center justify-between text-center min-h-[140px] transition-all hover:bg-emerald-50 relative"
-                >
-                  <div className="text-2xl select-none">🪙</div>
-                  <h4 className="text-sm font-display font-black text-retro-mint uppercase tracking-tight mt-1.5">
-                    Cơ Chế Hạch Toán Mới
-                  </h4>
-                  <div className="text-xs font-mono text-retro-gray mt-1 uppercase font-semibold">
-                    Đặt tại đây
-                  </div>
-
-                  {/* Render already sorted items inside chest */}
-                  <div className="w-full mt-3 space-y-1">
-                    {DRAG_ITEMS.filter(item => sortedCards[item.id] === "hach_toan").map(item => (
-                      <div key={item.id} className="bg-white border border-retro-mint rounded py-1 px-1.5 text-xs text-retro-mint font-mono flex items-center justify-between">
-                        <span className="truncate">{item.text.slice(0, 20)}...</span>
-                        <Check className="w-3.5 h-3.5 text-retro-mint shrink-0" />
-                      </div>
-                    ))}
-                  </div>
+                {/* Render already sorted items inside chest */}
+                <div className="w-full mt-3 space-y-1">
+                  {DRAG_ITEMS.filter(item => sortedCards[item.id] === "bao_cap").map(item => (
+                    <div key={item.id} className="bg-white border border-retro-red rounded py-1 px-1.5 text-xs text-retro-red font-mono flex items-center justify-between">
+                      <span className="truncate">{item.text.slice(0, 20)}...</span>
+                      <Check className="w-3.5 h-3.5 text-retro-mint shrink-0" />
+                    </div>
+                  ))}
                 </div>
-
               </div>
 
-              {/* Policy cards stack visual */}
-              <div className="space-y-3.5">
-                {gameFinished ? (
-                  <motion.div 
-                    initial={{ scale: 0.9, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    className="bg-retro-mint bg-opacity-10 rounded-xl p-5 text-center border-2 border-retro-mint text-retro-mint mb-2"
-                  >
-                    <Award className="w-12 h-12 mx-auto mb-2 animate-bounce" />
-                    <h4 className="font-display font-extrabold text-base uppercase">Thắng lợi vẻ vang! 🎉</h4>
-                    <p className="text-sm text-retro-charcoal mt-1.5 leading-relaxed">
-                      Bạn đã sắp đặt chuẩn xác 100% các tư duy chính sách trước thềm đổi mới! Từ đó mở toang cơ chế kìm kẹp phát triển đất nước.
-                    </p>
-                    <button 
-                      onClick={resetGame}
-                      className="mt-4 px-5 py-2.5 bg-retro-mint hover:bg-emerald-600 font-display font-bold text-sm text-white rounded border border-retro-charcoal transition-all inline-flex items-center gap-1.5"
-                    >
-                      <RotateCcw className="w-4 h-4" /> Chơi Lại Từ Đầu
-                    </button>
-                  </motion.div>
-                ) : (
-                  <div>
-                    <div className="text-xs font-mono text-retro-gray mb-2 uppercase tracking-wide font-bold">
-                      Thẻ bày sẵn ({DRAG_ITEMS.filter(item => !sortedCards[item.id]).length} thẻ còn lại):
-                    </div>
-                    
-                    <div className="space-y-2.5 max-h-[240px] overflow-y-auto pr-1">
-                      {DRAG_ITEMS.filter(item => !sortedCards[item.id]).map((item) => (
-                        <div
-                          key={item.id}
-                          draggable
-                          onDragStart={(e) => handleDragStart(e, item.id)}
-                          className={`bg-retro-cream border-2 border-retro-charcoal rounded-lg p-3.5 cursor-grab active:cursor-grabbing transition-transform select-none relative ${
-                            wrongFeedbackId === item.id ? "animate-shake bg-red-100 border-retro-red" : "hover:scale-[1.01]"
-                          }`}
-                        >
-                          <div className="text-sm font-medium text-retro-charcoal pr-8 leading-relaxed">
-                            {item.text}
-                          </div>
-                          
-                          {/* Display wrong warning badge */}
-                          {wrongFeedbackId === item.id && (
-                            <div className="absolute top-2 right-2 text-xs font-mono font-bold text-retro-red uppercase animate-pulse">
-                              Sai rương! ❌
-                            </div>
-                          )}
+              {/* NEW INDOOR COMMERCE CHEST */}
+              <div 
+                onDragOver={handleDragOver}
+                onDrop={(e) => handleDrop(e, "hach_toan")}
+                className="bg-emerald-50/50 border-2 border-dashed border-retro-mint rounded-xl p-4 flex flex-col items-center justify-between text-center min-h-[140px] transition-all hover:bg-emerald-50 relative"
+              >
+                <div className="text-2xl select-none">🪙</div>
+                <h4 className="text-sm font-display font-black text-retro-mint uppercase tracking-tight mt-1.5">
+                  Cơ Chế Hạch Toán Mới
+                </h4>
+                <div className="text-xs font-mono text-retro-gray mt-1 uppercase font-semibold">
+                  Đặt tại đây
+                </div>
 
-                          {/* Instant responsive button helpers for touch platforms / easy click experience */}
-                          <div className="flex flex-wrap gap-2.5 mt-3.5 pt-3 border-t border-dashed border-retro-border">
-                            <span className="text-xs font-mono text-retro-gray my-auto hidden sm:block">Lựa chọn nhanh:</span>
-                            <button
-                              onClick={() => sortCard(item.id, "bao_cap")}
-                              className="px-2.5 py-1.5 rounded bg-red-100 hover:bg-red-200 text-retro-red text-xs font-mono font-bold border border-retro-charcoal/20"
-                            >
-                              ← Chọn Bao Cấp
-                            </button>
-                            <button
-                              onClick={() => sortCard(item.id, "hach_toan")}
-                              className="px-2.5 py-1.5 rounded bg-emerald-100 hover:bg-emerald-200 text-retro-mint text-xs font-mono font-bold border border-retro-charcoal/20"
-                            >
-                              Chọn Hạch Toán →
-                            </button>
-                          </div>
-                        </div>
-                      ))}
+                {/* Render already sorted items inside chest */}
+                <div className="w-full mt-3 space-y-1">
+                  {DRAG_ITEMS.filter(item => sortedCards[item.id] === "hach_toan").map(item => (
+                    <div key={item.id} className="bg-white border border-retro-mint rounded py-1 px-1.5 text-xs text-retro-mint font-mono flex items-center justify-between">
+                      <span className="truncate">{item.text.slice(0, 20)}...</span>
+                      <Check className="w-3.5 h-3.5 text-retro-mint shrink-0" />
                     </div>
-                  </div>
-                )}
+                  ))}
+                </div>
               </div>
 
             </div>
 
-            {/* SECOND INTERACTION: QUIZ */}
-            <div className="bg-white border-2 border-retro-charcoal rounded-2xl p-6 shadow-[5px_5px_0px_#1e1f22] relative overflow-hidden">
-              <div className="absolute top-0 right-0 px-3 py-1 bg-retro-orange font-mono text-[9px] font-bold text-white border-l border-b border-retro-charcoal rounded-bl-lg uppercase tracking-wider">
-                Trắc nghiệm nhanh
-              </div>
-
-              <h3 className="text-lg md:text-xl font-display font-extrabold text-retro-charcoal uppercase mb-1.5 flex items-center gap-1.5">
-                <BookOpen className="w-5 h-5 text-retro-orange" />
-                Khảo sát nhận thức sử học
-              </h3>
-              
-              {!quizCompleted ? (
-                <div>
-                  <div className="flex items-center justify-between mb-4 border-b pb-2">
-                    <span className="text-xs font-mono font-bold text-retro-gray uppercase">
-                      Câu hỏi {currentQuizIdx + 1} / {QUIZ_QUESTIONS.length}
-                    </span>
-                    <span className="text-xs font-mono bg-retro-cream px-2 py-0.5 rounded text-retro-orange font-bold">
-                      Điểm: {quizCumulativeScore}
-                    </span>
-                  </div>
-
-                  <h4 className="text-sm md:text-base font-display font-bold text-retro-charcoal leading-snug mb-4">
-                    {QUIZ_QUESTIONS[currentQuizIdx].question}
-                  </h4>
-
-                  {/* Render Options list */}
-                  <div className="space-y-2.5 mb-5">
-                    {QUIZ_QUESTIONS[currentQuizIdx].options.map((option, idx) => {
-                      let btnStyle = "bg-retro-cream hover:bg-amber-50 text-retro-charcoal border-retro-border";
-                      
-                      if (quizSelectedOption === idx && !quizSubmitted) {
-                        btnStyle = "bg-orange-50 border-retro-orange text-retro-charcoal";
-                      } else if (quizSubmitted) {
-                        if (idx === QUIZ_QUESTIONS[currentQuizIdx].correctAnswer) {
-                          btnStyle = "bg-emerald-100 border-retro-mint text-emerald-800 font-bold";
-                        } else if (quizSelectedOption === idx) {
-                          btnStyle = "bg-red-100 border-retro-red text-red-800";
-                        } else {
-                          btnStyle = "bg-slate-50 text-slate-400 border-slate-200 opacity-60";
-                        }
-                      }
-
-                      return (
-                        <button
-                          key={idx}
-                          disabled={quizSubmitted}
-                          onClick={() => handleQuizOptionClick(idx)}
-                          className={`w-full text-left p-3.5 rounded-lg text-sm font-sans tracking-tight border-2 transition-all flex items-start gap-2.5 ${btnStyle}`}
-                        >
-                          <span className="w-5.5 h-5.5 rounded bg-white shadow-sm border text-xs font-bold flex items-center justify-center shrink-0 font-mono text-retro-charcoal">
-                            {String.fromCharCode(65 + idx)}
-                          </span>
-                          <span className="flex-1 leading-relaxed">{option}</span>
-                          
-                          {quizSubmitted && idx === QUIZ_QUESTIONS[currentQuizIdx].correctAnswer && (
-                            <Check className="w-4.5 h-4.5 text-retro-mint shrink-0 my-auto" />
-                          )}
-                          {quizSubmitted && quizSelectedOption === idx && idx !== QUIZ_QUESTIONS[currentQuizIdx].correctAnswer && (
-                            <X className="w-4.5 h-4.5 text-retro-red shrink-0 my-auto" />
-                          )}
-                        </button>
-                      );
-                    })}
-                  </div>
-
-                  {/* Submit actions & explanation */}
-                  <div className="space-y-4">
-                    {!quizSubmitted ? (
-                      <button
-                        onClick={submitQuizAnswer}
-                        disabled={quizSelectedOption === null}
-                        className={`w-full py-3.5 bg-retro-orange hover:bg-orange-500 font-display font-bold text-sm uppercase tracking-wider text-white rounded-lg border-2 border-retro-charcoal shadow-[3px_3px_0px_#1e1f22] transition-all flex items-center justify-center gap-1.5 ${
-                          quizSelectedOption === null ? "opacity-50 cursor-not-allowed" : "active:translate-x-0.5 active:translate-y-0.5 active:shadow-[1px_1px_0px_#1e1f22]"
-                        }`}
-                      >
-                        Xác nhận câu trả lời
-                        <CheckCircle2 className="w-4.5 h-4.5" />
-                      </button>
-                    ) : (
-                      <div className="space-y-3.5">
-                        {/* Explanation block */}
-                        <motion.div 
-                          initial={{ opacity: 0, y: 5 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          className="bg-retro-cream p-4 rounded-lg border border-retro-border text-sm leading-relaxed"
-                        >
-                          <div className="font-mono font-bold text-xs uppercase text-retro-orange mb-1.5 flex items-center gap-1">
-                            <Info className="w-4 h-4 text-retro-orange" />
-                            Giải thích lịch sử Đảng:
-                          </div>
-                          <p className="text-retro-gray">{QUIZ_QUESTIONS[currentQuizIdx].explanation}</p>
-                        </motion.div>
-
-                        <button
-                          onClick={nextQuizQuestion}
-                          className="w-full py-3.5 bg-retro-charcoal hover:bg-retro-gray font-display font-bold text-sm uppercase tracking-wider text-white rounded-lg transition-all flex items-center justify-center gap-1.5"
-                        >
-                          Tiếp theo
-                          <ChevronRight className="w-4.5 h-4.5" />
-                        </button>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              ) : (
+            {/* Policy cards stack visual */}
+            <div className="space-y-3.5">
+              {gameFinished ? (
                 <motion.div 
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="text-center py-6 select-none"
+                  initial={{ scale: 0.9, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  className="bg-retro-mint bg-opacity-10 rounded-xl p-5 text-center border-2 border-retro-mint text-retro-mint mb-2"
                 >
-                  <Award className="w-16 h-16 mx-auto mb-2 text-retro-yellow animate-bounce" />
-                  <h4 className="font-display font-bold text-lg uppercase tracking-tight text-retro-charcoal">
-                    Hoàn thành bài kiểm tra lịch sử
-                  </h4>
-                  
-                  <div className="text-5xl font-display font-extrabold text-retro-red my-4">
-                    {quizCumulativeScore} / {QUIZ_QUESTIONS.length}
-                  </div>
-
-                  <p className="text-sm text-retro-gray max-w-xs mx-auto leading-relaxed mb-6">
-                    {quizCumulativeScore === QUIZ_QUESTIONS.length 
-                      ? "Xuất sắc! Bạn đã có nhận thức lịch sử vô cùng tường tận, am hiểu sâu sắc mốc chuyển mình kinh tế nước nhà!"
-                      : "Khá tốt! Bạn đã thu nhặt được các mốc thời điểm, nghị quyết quan trọng nhất trong chặng đường dựng nước."}
+                  <Award className="w-12 h-12 mx-auto mb-2 animate-bounce" />
+                  <h4 className="font-display font-extrabold text-base uppercase">Thắng lợi vẻ vang! 🎉</h4>
+                  <p className="text-sm text-retro-charcoal mt-1.5 leading-relaxed">
+                    Bạn đã sắp đặt chuẩn xác 100% các tư duy chính sách trước thềm đổi mới! Từ đó mở toang cơ chế kìm kẹp phát triển đất nước.
                   </p>
-
-                  <button
-                    onClick={restartQuiz}
-                    className="px-6 py-3 bg-retro-red text-white hover:bg-retro-red-dark font-display font-bold text-sm uppercase rounded border-2 border-retro-charcoal shadow-[3px_3px_0px_#1e1f22] inline-flex items-center gap-1.5 transition-all"
+                  <button 
+                    onClick={resetGame}
+                    className="mt-4 px-5 py-2.5 bg-retro-mint hover:bg-emerald-600 font-display font-bold text-sm text-white rounded border border-retro-charcoal transition-all inline-flex items-center gap-1.5"
                   >
-                    <RotateCcw className="w-4.5 h-4.5" /> Thử sức lại
+                    <RotateCcw className="w-4 h-4" /> Chơi Lại Từ Đầu
                   </button>
                 </motion.div>
-              )}
+              ) : (
+                <div>
+                  <div className="text-xs font-mono text-retro-gray mb-2 uppercase tracking-wide font-bold">
+                    Thẻ bày sẵn ({DRAG_ITEMS.filter(item => !sortedCards[item.id]).length} thẻ còn lại):
+                  </div>
+                  
+                  <div className="space-y-2.5 max-h-[240px] overflow-y-auto pr-1">
+                    {DRAG_ITEMS.filter(item => !sortedCards[item.id]).map((item) => (
+                      <div
+                        key={item.id}
+                        draggable
+                        onDragStart={(e) => handleDragStart(e, item.id)}
+                        className={`bg-retro-cream border-2 border-retro-charcoal rounded-lg p-3.5 cursor-grab active:cursor-grabbing transition-transform select-none relative ${
+                          wrongFeedbackId === item.id ? "animate-shake bg-red-100 border-retro-red" : "hover:scale-[1.01]"
+                        }`}
+                      >
+                        <div className="text-sm font-medium text-retro-charcoal pr-8 leading-relaxed">
+                          {item.text}
+                        </div>
+                        
+                        {/* Display wrong warning badge */}
+                        {wrongFeedbackId === item.id && (
+                          <div className="absolute top-2 right-2 text-xs font-mono font-bold text-retro-red uppercase animate-pulse">
+                            Sai rương! ❌
+                          </div>
+                        )}
 
+                        {/* Instant responsive button helpers for touch platforms / easy click experience */}
+                        <div className="flex flex-wrap gap-2.5 mt-3.5 pt-3 border-t border-dashed border-retro-border">
+                          <span className="text-xs font-mono text-retro-gray my-auto hidden sm:block">Lựa chọn nhanh:</span>
+                          <button
+                            onClick={() => sortCard(item.id, "bao_cap")}
+                            className="px-2.5 py-1.5 rounded bg-red-100 hover:bg-red-200 text-retro-red text-xs font-mono font-bold border border-retro-charcoal/20"
+                          >
+                            ← Chọn Bao Cấp
+                          </button>
+                          <button
+                            onClick={() => sortCard(item.id, "hach_toan")}
+                            className="px-2.5 py-1.5 rounded bg-emerald-100 hover:bg-emerald-200 text-retro-mint text-xs font-mono font-bold border border-retro-charcoal/20"
+                          >
+                            Chọn Hạch Toán →
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
 
           </div>
@@ -1761,22 +1627,178 @@ export default function App() {
         </div>
       </section>
 
+      {/* QUIZ ASSESSMENT SECTION / TẦNG 4B */}
+      <section className="bg-retro-cream border-t-2 border-b-4 border-retro-charcoal py-16 px-4 relative overflow-hidden">
+        <div className="max-w-2xl mx-auto">
+          
+          <div className="text-center mb-10">
+            <span className="px-3 py-1 bg-retro-orange text-white font-mono text-xs font-bold uppercase tracking-widest border border-retro-charcoal rounded-full shadow-sm">
+              Hoạt Động Tương Tác 02 📝
+            </span>
+            <h2 className="text-3xl md:text-4xl font-display font-extrabold uppercase mt-3 tracking-tight text-retro-charcoal">
+              Khảo Sát Nhận Thức Sử Học
+            </h2>
+            <p className="text-sm text-retro-gray max-w-xl mx-auto mt-2">
+              Ôn luyện các mốc thời điểm, nghị quyết then chốt trong chặng đường dựng nước qua bài kiểm tra lịch sử Đảng.
+            </p>
+          </div>
+
+          {/* SECOND INTERACTION: QUIZ */}
+          <div className="bg-white border-2 border-retro-charcoal rounded-2xl p-6 shadow-[5px_5px_0px_#1e1f22] relative overflow-hidden">
+            <div className="absolute top-0 right-0 px-3 py-1 bg-retro-orange font-mono text-[9px] font-bold text-white border-l border-b border-retro-charcoal rounded-bl-lg uppercase tracking-wider">
+              Trắc nghiệm nhanh
+            </div>
+
+            <h3 className="text-lg md:text-xl font-display font-extrabold text-retro-charcoal uppercase mb-1.5 flex items-center gap-1.5">
+              <BookOpen className="w-5 h-5 text-retro-orange" />
+              Khảo sát nhận thức sử học
+            </h3>
+            
+            {!quizCompleted ? (
+              <div>
+                <div className="flex items-center justify-between mb-4 border-b pb-2">
+                  <span className="text-xs font-mono font-bold text-retro-gray uppercase">
+                    Câu hỏi {currentQuizIdx + 1} / {QUIZ_QUESTIONS.length}
+                  </span>
+                  <span className="text-xs font-mono bg-retro-cream px-2 py-0.5 rounded text-retro-orange font-bold">
+                    Điểm: {quizCumulativeScore}
+                  </span>
+                </div>
+
+                <h4 className="text-sm md:text-base font-display font-bold text-retro-charcoal leading-snug mb-4">
+                  {QUIZ_QUESTIONS[currentQuizIdx].question}
+                </h4>
+
+                {/* Render Options list */}
+                <div className="space-y-2.5 mb-5">
+                  {QUIZ_QUESTIONS[currentQuizIdx].options.map((option, idx) => {
+                    let btnStyle = "bg-retro-cream hover:bg-amber-50 text-retro-charcoal border-retro-border";
+                    
+                    if (quizSelectedOption === idx && !quizSubmitted) {
+                      btnStyle = "bg-orange-50 border-retro-orange text-retro-charcoal";
+                    } else if (quizSubmitted) {
+                      if (idx === QUIZ_QUESTIONS[currentQuizIdx].correctAnswer) {
+                        btnStyle = "bg-emerald-100 border-retro-mint text-emerald-800 font-bold";
+                      } else if (quizSelectedOption === idx) {
+                        btnStyle = "bg-red-100 border-retro-red text-red-800";
+                      } else {
+                        btnStyle = "bg-slate-50 text-slate-400 border-slate-200 opacity-60";
+                      }
+                    }
+
+                    return (
+                      <button
+                        key={idx}
+                        disabled={quizSubmitted}
+                        onClick={() => handleQuizOptionClick(idx)}
+                        className={`w-full text-left p-3.5 rounded-lg text-sm font-sans tracking-tight border-2 transition-all flex items-start gap-2.5 ${btnStyle}`}
+                      >
+                        <span className="w-5.5 h-5.5 rounded bg-white shadow-sm border text-xs font-bold flex items-center justify-center shrink-0 font-mono text-retro-charcoal">
+                          {String.fromCharCode(65 + idx)}
+                        </span>
+                        <span className="flex-1 leading-relaxed">{option}</span>
+                        
+                        {quizSubmitted && idx === QUIZ_QUESTIONS[currentQuizIdx].correctAnswer && (
+                          <Check className="w-4.5 h-4.5 text-retro-mint shrink-0 my-auto" />
+                        )}
+                        {quizSubmitted && quizSelectedOption === idx && idx !== QUIZ_QUESTIONS[currentQuizIdx].correctAnswer && (
+                          <X className="w-4.5 h-4.5 text-retro-red shrink-0 my-auto" />
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* Submit actions & explanation */}
+                <div className="space-y-4">
+                  {!quizSubmitted ? (
+                    <button
+                      onClick={submitQuizAnswer}
+                      disabled={quizSelectedOption === null}
+                      className={`w-full py-3.5 bg-retro-orange hover:bg-orange-500 font-display font-bold text-sm uppercase tracking-wider text-white rounded-lg border-2 border-retro-charcoal shadow-[3px_3px_0px_#1e1f22] transition-all flex items-center justify-center gap-1.5 ${
+                        quizSelectedOption === null ? "opacity-50 cursor-not-allowed" : "active:translate-x-0.5 active:translate-y-0.5 active:shadow-[1px_1px_0px_#1e1f22]"
+                      }`}
+                    >
+                      Xác nhận câu trả lời
+                      <CheckCircle2 className="w-4.5 h-4.5" />
+                    </button>
+                  ) : (
+                    <div className="space-y-3.5">
+                      {/* Explanation block */}
+                      <motion.div 
+                        initial={{ opacity: 0, y: 5 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="bg-retro-cream p-4 rounded-lg border border-retro-border text-sm leading-relaxed"
+                      >
+                        <div className="font-mono font-bold text-xs uppercase text-retro-orange mb-1.5 flex items-center gap-1">
+                          <Info className="w-4 h-4 text-retro-orange" />
+                          Giải thích lịch sử Đảng:
+                        </div>
+                        <p className="text-retro-gray">{QUIZ_QUESTIONS[currentQuizIdx].explanation}</p>
+                      </motion.div>
+
+                      <button
+                        onClick={nextQuizQuestion}
+                        className="w-full py-3.5 bg-retro-charcoal hover:bg-retro-gray font-display font-bold text-sm uppercase tracking-wider text-white rounded-lg transition-all flex items-center justify-center gap-1.5"
+                      >
+                        Tiếp theo
+                        <ChevronRight className="w-4.5 h-4.5" />
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </div>
+            ) : (
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="text-center py-6 select-none"
+              >
+                <Award className="w-16 h-16 mx-auto mb-2 text-retro-yellow animate-bounce" />
+                <h4 className="font-display font-bold text-lg uppercase tracking-tight text-retro-charcoal">
+                  Hoàn thành bài kiểm tra lịch sử
+                </h4>
+                
+                <div className="text-5xl font-display font-extrabold text-retro-red my-4">
+                  {quizCumulativeScore} / {QUIZ_QUESTIONS.length}
+                </div>
+
+                <p className="text-sm text-retro-gray max-w-xs mx-auto leading-relaxed mb-6">
+                  {quizCumulativeScore === QUIZ_QUESTIONS.length 
+                    ? "Xuất sắc! Bạn đã có nhận thức lịch sử vô cùng tường tận, am hiểu sâu sắc mốc chuyển mình kinh tế nước nhà!"
+                    : "Khá tốt! Bạn đã thu nhặt được các mốc thời điểm, nghị quyết quan trọng nhất trong chặng đường dựng nước."}
+                </p>
+
+                <button
+                  onClick={restartQuiz}
+                  className="px-6 py-3 bg-retro-red text-white hover:bg-retro-red-dark font-display font-bold text-sm uppercase rounded border-2 border-retro-charcoal shadow-[3px_3px_0px_#1e1f22] inline-flex items-center gap-1.5 transition-all"
+                >
+                  <RotateCcw className="w-4.5 h-4.5" /> Thử sức lại
+                </button>
+              </motion.div>
+            )}
+
+          </div>
+
+        </div>
+      </section>
+
       {/* DETAILED COORDINATION BOARD (FOOTER SECTION) / TẦNG 5 */}
-      <section id="footer-tab" className="bg-[#1C1D21] text-white border-t-4 border-retro-charcoal py-16 px-4">
+      <section id="footer-tab" className="bg-retro-cream text-retro-charcoal border-t-4 border-retro-charcoal py-16 px-4">
         <div className="max-w-4xl mx-auto">
           
           <div className="text-center mb-12">
-            <span className="px-3 py-1 bg-white/10 text-retro-orange font-mono text-[10px] font-bold uppercase tracking-widest border border-white/20 rounded-full">
+            <span className="px-3 py-1 bg-retro-charcoal/5 text-retro-orange font-mono text-[10px] font-bold uppercase tracking-widest border border-retro-charcoal/20 rounded-full">
               Thẩm Định Tiêu Chí Phân Cấp 🇻🇳
             </span>
             <div className="mt-3 flex items-center justify-center gap-2">
-              <span className="w-10 h-0.5 bg-gray-500"></span>
-              <h2 className="text-2xl md:text-4xl font-display font-extrabold uppercase tracking-tight">
+              <span className="w-10 h-0.5 bg-retro-charcoal/30"></span>
+              <h2 className="text-2xl md:text-4xl font-display font-extrabold uppercase tracking-tight text-retro-charcoal">
                 MÔ HÌNH PHỐI HỢP AI & HUMAN
               </h2>
-              <span className="w-10 h-0.5 bg-gray-500"></span>
+              <span className="w-10 h-0.5 bg-retro-charcoal/30"></span>
             </div>
-            <p className="text-sm text-gray-400 mt-2 max-w-xl mx-auto leading-relaxed">
+            <p className="text-sm text-retro-gray mt-2 max-w-xl mx-auto leading-relaxed">
               Minh chứng trực quan về sự cộng tác biên niên sử thông minh giữa trợ lý thiết kế AI và con người (sinh viên kiểm duyệt) để thiết lập công nghệ giáo dục đổi mới.
             </p>
           </div>
@@ -1785,9 +1807,9 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch mb-10">
             
             {/* AI ROLE COL */}
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col justify-between">
+            <div className="bg-white border-2 border-retro-charcoal rounded-2xl p-6 flex flex-col justify-between shadow-[4px_4px_0px_rgba(30,31,34,1)]">
               <div>
-                <div className="flex items-center gap-3.5 mb-4 border-b border-white/10 pb-4">
+                <div className="flex items-center gap-3.5 mb-4 border-b border-retro-border pb-4">
                   <div className="relative flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-retro-red to-orange-600 text-white font-bold shadow-[0_0_12px_rgba(239,68,68,0.4)] border border-white/20 hover:scale-105 transition-all duration-300 select-none shrink-0 group">
                     <Bot className="w-6 h-6 text-white group-hover:rotate-6 transition-transform" />
                     <span className="absolute -top-1 -right-1 flex h-3 w-3">
@@ -1796,7 +1818,7 @@ export default function App() {
                     </span>
                   </div>
                   <div>
-                    <h4 className="font-display font-bold leading-none text-white text-base">
+                    <h4 className="font-display font-bold leading-none text-retro-charcoal text-base">
                       {COLLABORATIVE_TASKS[0].title}
                     </h4>
                     <span className="text-xs font-mono text-retro-orange uppercase font-bold tracking-wider">
@@ -1807,7 +1829,7 @@ export default function App() {
 
                 <ul className="space-y-3">
                   {COLLABORATIVE_TASKS[0].details.map((detail, idx) => (
-                    <li key={idx} className="text-sm text-gray-300 leading-relaxed font-sans flex items-start gap-2">
+                    <li key={idx} className="text-sm text-retro-gray leading-relaxed font-sans flex items-start gap-2">
                       <span className="text-retro-red font-bold shrink-0 mt-0.5">⚡</span>
                       <span>{detail}</span>
                     </li>
@@ -1815,15 +1837,15 @@ export default function App() {
                 </ul>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-white/10 text-xs font-mono text-gray-500 uppercase tracking-widest font-semibold">
+              <div className="mt-6 pt-4 border-t border-retro-border text-xs font-mono text-retro-gray uppercase tracking-widest font-semibold">
                 Trạng thái: Hoàn thiện tối ưu 100%
               </div>
             </div>
 
             {/* HUMAN ROLE COL */}
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col justify-between">
+            <div className="bg-white border-2 border-retro-charcoal rounded-2xl p-6 flex flex-col justify-between shadow-[4px_4px_0px_rgba(30,31,34,1)]">
               <div>
-                <div className="flex items-center gap-3.5 mb-4 border-b border-white/10 pb-4">
+                <div className="flex items-center gap-3.5 mb-4 border-b border-retro-border pb-4">
                   <div className="relative flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-[#10B981] to-emerald-600 text-white font-bold shadow-[0_0_12px_rgba(16,185,129,0.4)] border border-white/20 hover:scale-105 transition-all duration-300 select-none shrink-0 group">
                     <UserCheck className="w-6 h-6 text-white group-hover:-rotate-6 transition-transform" />
                     <span className="absolute -top-1 -right-1 flex h-3 w-3">
@@ -1832,7 +1854,7 @@ export default function App() {
                     </span>
                   </div>
                   <div>
-                    <h4 className="font-display font-bold leading-none text-white text-base">
+                    <h4 className="font-display font-bold leading-none text-retro-charcoal text-base">
                       {COLLABORATIVE_TASKS[1].title}
                     </h4>
                     <span className="text-xs font-mono text-retro-mint uppercase font-bold tracking-wider">
@@ -1843,7 +1865,7 @@ export default function App() {
 
                 <ul className="space-y-3">
                   {COLLABORATIVE_TASKS[1].details.map((detail, idx) => (
-                    <li key={idx} className="text-sm text-gray-300 leading-relaxed font-sans flex items-start gap-2">
+                    <li key={idx} className="text-sm text-retro-gray leading-relaxed font-sans flex items-start gap-2">
                       <span className="text-retro-mint font-bold shrink-0 mt-0.5">✓</span>
                       <span>{detail}</span>
                     </li>
@@ -1851,7 +1873,7 @@ export default function App() {
                 </ul>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-white/10 text-xs font-mono text-gray-500 uppercase tracking-widest font-semibold">
+              <div className="mt-6 pt-4 border-t border-retro-border text-xs font-mono text-retro-gray uppercase tracking-widest font-semibold">
                 Trương kiểm duyệt: Sinh viên hoàn tất kiểm duyệt 100%
               </div>
             </div>
@@ -1859,7 +1881,7 @@ export default function App() {
           </div>
 
           {/* Core metadata credits details / design credentials labels */}
-          <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 font-mono gap-4 text-center sm:text-left">
+          <div className="border-t border-retro-charcoal/20 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-retro-gray font-mono gap-4 text-center sm:text-left">
             <div>
               &copy; 1975 - 1986 HÀNH TRÌNH ĐỔI MỚI KINH TẾ VIỆT NAM. 
               <br/>
