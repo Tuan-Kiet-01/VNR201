@@ -329,59 +329,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* LÝ DO THỰC HIỆN SẢN PHẨM */}
-      <section className="bg-retro-cream border-t-4 border-b-2 border-retro-charcoal py-12 px-4 relative overflow-hidden">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="max-w-4xl mx-auto"
-        >
-          <div className="bg-white border-4 border-retro-charcoal rounded-2xl p-6 md:p-8 shadow-[6px_6px_0px_rgba(30,31,34,1)] relative overflow-hidden">
-            {/* Corner retro badge */}
-            <div className="absolute top-0 right-0 bg-retro-orange text-white text-[10px] font-mono font-bold px-3 py-1 uppercase tracking-widest border-b-2 border-l-2 border-retro-charcoal rounded-bl-xl">
-              Ý nghĩa khoa học
-            </div>
-
-            <div className="mb-6">
-              <span className="px-3 py-1 bg-retro-yellow text-retro-charcoal font-mono text-xs font-bold uppercase tracking-widest border border-retro-charcoal rounded-full shadow-sm">
-                Giai đoạn lịch sử 1975 - 1986
-              </span>
-              <h2 className="text-2xl md:text-3xl font-display font-black text-retro-charcoal mt-3 uppercase tracking-tight">
-                LÝ DO THỰC HIỆN SẢN PHẨM
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-retro-cream/50 p-5 rounded-xl border-2 border-retro-charcoal hover:shadow-[4px_4px_0px_rgba(30,31,34,1)] transition-all">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="text-retro-red font-bold text-lg">💡</span>
-                  <h3 className="font-display font-bold text-retro-charcoal uppercase text-sm tracking-wide">
-                    Về lý luận
-                  </h3>
-                </div>
-                <p className="text-sm text-retro-gray leading-relaxed font-sans">
-                  Hệ thống hóa bước chuyển tư duy quan trọng của Đảng; từ cơ chế bao cấp, duy ý chí sang thừa nhận quy luật thị trường (qua các cột mốc "Khoán chui", Chỉ thị 100, đổi mới "Giá - Lương - Tiền"); khẳng định hai nhiệm vụ chiến lược: Xây dựng và Bảo vệ Tổ quốc.
-                </p>
-              </div>
-
-              <div className="bg-retro-cream/50 p-5 rounded-xl border-2 border-retro-charcoal hover:shadow-[4px_4px_0px_rgba(30,31,34,1)] transition-all">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="text-retro-mint font-bold text-lg">⚙️</span>
-                  <h3 className="font-display font-bold text-retro-charcoal uppercase text-sm tracking-wide">
-                    Về thực tiễn
-                  </h3>
-                </div>
-                <p className="text-sm text-retro-gray leading-relaxed font-sans">
-                  Số hóa và trực quan hóa các văn kiện, số liệu khô khan thành sản phẩm dễ tiếp cận; tái hiện sinh động khát vọng "xé rào" sáng tạo của nhân dân; đồng thời giáo dục lòng yêu nước và bài học "nhìn thẳng vào sự thật" để đổi mới.
-                </p>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-      </section>
-
       {/* CORE HISTORICAL SECTIONS CONTAINER */}
       <main id="timeline-section" className="relative py-16 px-4 md:px-8 max-w-6xl mx-auto">
         <h2 className="text-center font-display font-extrabold text-3xl md:text-5xl uppercase text-retro-charcoal tracking-tight mb-4">
@@ -1987,6 +1934,59 @@ export default function App() {
 
           </div>
 
+        </motion.div>
+      </section>
+
+      {/* LÝ DO THỰC HIỆN SẢN PHẨM */}
+      <section className="bg-retro-cream border-t-4 border-b-4 border-retro-charcoal py-12 px-4 relative overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="max-w-4xl mx-auto"
+        >
+          <div className="bg-white border-4 border-retro-charcoal rounded-2xl p-6 md:p-8 shadow-[6px_6px_0px_rgba(30,31,34,1)] relative overflow-hidden">
+            {/* Corner retro badge */}
+            <div className="absolute top-0 right-0 bg-retro-orange text-white text-[10px] font-mono font-bold px-3 py-1 uppercase tracking-widest border-b-2 border-l-2 border-retro-charcoal rounded-bl-xl">
+              Ý nghĩa khoa học
+            </div>
+
+            <div className="mb-6">
+              <span className="px-3 py-1 bg-retro-yellow text-retro-charcoal font-mono text-xs font-bold uppercase tracking-widest border border-retro-charcoal rounded-full shadow-sm">
+                Giai đoạn lịch sử 1975 - 1986
+              </span>
+              <h2 className="text-2xl md:text-3xl font-display font-black text-retro-charcoal mt-3 uppercase tracking-tight">
+                LÝ DO THỰC HIỆN SẢN PHẨM
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-retro-cream/50 p-5 rounded-xl border-2 border-retro-charcoal hover:shadow-[4px_4px_0px_rgba(30,31,34,1)] transition-all">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-retro-red font-bold text-lg">💡</span>
+                  <h3 className="font-display font-bold text-retro-charcoal uppercase text-sm tracking-wide">
+                    Về lý luận
+                  </h3>
+                </div>
+                <p className="text-sm text-retro-gray leading-relaxed font-sans">
+                  Hệ thống hóa bước chuyển tư duy quan trọng của Đảng; từ cơ chế bao cấp, duy ý chí sang thừa nhận quy luật thị trường (qua các cột mốc "Khoán chui", Chỉ thị 100, đổi mới "Giá - Lương - Tiền"); khẳng định hai nhiệm vụ chiến lược: Xây dựng và Bảo vệ Tổ quốc.
+                </p>
+              </div>
+
+              <div className="bg-retro-cream/50 p-5 rounded-xl border-2 border-retro-charcoal hover:shadow-[4px_4px_0px_rgba(30,31,34,1)] transition-all">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-retro-mint font-bold text-lg">⚙️</span>
+                  <h3 className="font-display font-bold text-retro-charcoal uppercase text-sm tracking-wide">
+                    Về thực tiễn
+                  </h3>
+                </div>
+                <p className="text-sm text-retro-gray leading-relaxed font-sans">
+                  Số hóa và trực quan hóa các văn kiện, số liệu khô khan thành sản phẩm dễ tiếp cận; tái hiện sinh động khát vọng "xé rào" sáng tạo của nhân dân; đồng thời giáo dục lòng yêu nước và bài học "nhìn thẳng vào sự thật" để đổi mới.
+                </p>
+              </div>
+            </div>
+          </div>
         </motion.div>
       </section>
 
